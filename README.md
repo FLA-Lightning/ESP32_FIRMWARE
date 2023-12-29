@@ -1,14 +1,3 @@
-# Módulos Atenuadores ESP32
+# Módulo Atenuadore ESP32
 
-## Configuração
-
-Antes de usar, ajuste as configurações de WiFi e MQTT no início do arquivo `seu_codigo.ino`:
-
-```cpp
-const char* ssid = "SEU_SSID";
-const char* password = "SUA_SENHA_WIFI";
-const char* mqtt_username = "SEU_USUARIO_MQTT";
-const char* mqtt_password = "SUA_SENHA_MQTT";
-const char* mqtt_broker_address = "ENDERECO_DO_BROKER_MQTT";
-const char* topic = "esp32/atenuador";
-const int ledPin = 2; // GPIO do LED
+Este código representa o firmware para os módulos atenuadores. A principal função desses módulos é receber mensagens via MQTT e ajustar a intensidade luminosa de uma lâmpada de acordo com os parâmetros fornecidos. É importante notar que, por enquanto, a implementação do dimmer não está completa, razão pela qual o LED interno da ESP32 foi utilizado como exemplo para demonstrar o funcionamento.
