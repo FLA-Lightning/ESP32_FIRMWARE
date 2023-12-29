@@ -23,14 +23,14 @@ Dentro do callback, o valor da mensagem é extraído do payload e interpretado. 
 Observação Importante: O LED interno é utilizado para simular o controle de luminosidade até que o dimmer real seja implementado. A substituição do LED pelo hardware real do dimmer será necessária quando disponível.
 ## Configurações
 
-'''cpp
+```cpp
 const char* ssid = "SuaRedeWiFi";const char* password = "SuaSenhaWiFi";
 const char* mqtt_username = "SeuUsuarioMQTT";
 const char* mqtt_password = "SuaSenhaMQTT";
 const char* mqtt_broker_address = "EnderecoDoBrokerMQTT";
 const char* topic = "esp32/atenuador";
 const int ledPin = 2; // GPIO onde o LED (ou futuro dimmer) está conectado
-'''
+```
 
 ## Notas adicionais:
 
