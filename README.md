@@ -4,8 +4,8 @@ Este código representa o firmware para os módulos atenuadores. A principal fun
 
 ## Funcionalidades Principais
 
-    Controle Remoto da Intensidade Luminosa:
-    O módulo atenuador se conecta ao broker MQTT e assina o tópico "esp32/atenuador". Quando uma mensagem é recebida nesse tópico, o ajuste de intensidade luminosa será implementado assim que a funcionalidade completa do dimmer estiver pronta.
+### Controle Remoto da Intensidade Luminosa:
+O módulo atenuador se conecta ao broker MQTT e assina o tópico "esp32/atenuador". Quando uma mensagem é recebida nesse tópico, o ajuste de intensidade luminosa será implementado assim que a funcionalidade completa do dimmer estiver pronta.
 
-    LED Interno como Exemplo:
-    Até o desenvolvimento do dimmer, o LED interno da ESP32 é utilizado como exemplo para simular o controle da intensidade luminosa.
+### LED Interno como Exemplo:
+Até o desenvolvimento do dimmer, o LED interno da ESP32 é utilizado como exemplo para simular o controle da intensidade luminosa.
