@@ -9,3 +9,10 @@ O módulo atenuador se conecta ao broker MQTT e assina o tópico "esp32/atenuado
 
 ### LED Interno como Exemplo:
 Até o desenvolvimento do dimmer, o LED interno da ESP32 é utilizado como exemplo para simular o controle da intensidade luminosa.
+
+## Bibliotecas Necessárias
+
+Certifique-se de ter as seguintes bibliotecas instaladas no seu ambiente Arduino IDE:
+
+  * WiFi
+  * PubSubClient
