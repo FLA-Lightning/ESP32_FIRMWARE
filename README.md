@@ -24,7 +24,8 @@ Observação Importante: O LED interno é utilizado para simular o controle de l
 ## Configurações
 
 ```cpp
-const char* ssid = "SuaRedeWiFi";const char* password = "SuaSenhaWiFi";
+const char* ssid = "SuaRedeWiFi";
+const char* password = "SuaSenhaWiFi";
 const char* mqtt_username = "SeuUsuarioMQTT";
 const char* mqtt_password = "SuaSenhaMQTT";
 const char* mqtt_broker_address = "EnderecoDoBrokerMQTT";
