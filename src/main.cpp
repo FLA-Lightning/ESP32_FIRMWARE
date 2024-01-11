@@ -1,9 +1,5 @@
-#include <WiFi.h>
+#include <WiFiManager.h>
 #include <PubSubClient.h>
-
-// Configurações de rede WiFi
-const char* ssid = "MATHEUS ";
-const char* password = "12213490";
 
 // Configurações MQTT
 const char* mqtt_username = "admin";
@@ -19,25 +15,6 @@ PubSubClient client(espClient);
 
 unsigned long lastMsg = 0;
 
-// Função para conectar ao Wi-Fi
-void connectWiFi() {
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
-
-  Serial.println("\n\n=====================");
-  Serial.println("Conectando no Wi-Fi");
-  Serial.println("=====================\n\n");
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-
-  Serial.println("\n\n=====================");
-  Serial.println("Conectado ao Wi-Fi!");
-  Serial.println("=====================\n\n");
-}
-
 // Função de retorno de chamada para mensagens MQTT recebidas
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.println("Pessoa detectada! ");
@@ -48,7 +25,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     lastMsg = millis();
     digitalWrite(TRIAC_PIN, HIGH);
     Serial.println("Lâmpada ligada!\n");
-    
+
     // Atualiza o valor de dimDuration
     dimDuration = 1000;
     Serial.printf("Intensidade luminosa alterada de 50%% para 100%%");
@@ -65,7 +42,7 @@ void reconnectMQTT() {
     if (client.connect("Atenuador1", mqtt_username, mqtt_password)) {
       Serial.println("\n\n=====================");
       Serial.println("Conectado ao MQTT!");
-      Serial.println("=====================\n\n");      
+      Serial.println("=====================\n\n");
       client.subscribe(topic);
     } else {
       Serial.print("Falha, rc=");
@@ -79,10 +56,12 @@ void reconnectMQTT() {
 void setup() {
   Serial.begin(115200);
 
+  // Inicializa o WiFiManager
+  WiFiManager wifiManager;
+  wifiManager.autoConnect("AutoConnectAP");
+
   pinMode(TRIAC_PIN, OUTPUT);
   digitalWrite(TRIAC_PIN, LOW);
-
-  connectWiFi();
 
   client.setServer(mqtt_broker_address, 1883);
   client.setCallback(callback);
